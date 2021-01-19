@@ -6,7 +6,8 @@ const UserSchema = new Schema({
     email:String,
     Password: String,
     Nom: String,
-    Prenom: String
+    Prenom: String,
+    photoprofil:String
 },{collection: "USER_COLLEC"})
 
 UserSchema.pre('save',async function(next){

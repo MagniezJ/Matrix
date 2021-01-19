@@ -10,5 +10,8 @@ module.exports = {
     },
     profil(req,res){
         res.render('profil_page')
+    },
+    modif(req,res){
+        res.render('form_modif')
     }
 }

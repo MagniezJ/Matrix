@@ -1,6 +1,8 @@
 const env = require('dotenv').config();
 const User = require('../model/user-model');
 const bodyParser = require('body-parser');
+const upload = require('../image/multer');
+const cloudinary = require('../image/upload');
 const data = require('../data/bd');
 const jwt = require('jsonwebtoken');
 const bcrypt=require('bcrypt');
@@ -70,12 +72,57 @@ module.exports = {
                     email: req.body.email,
                     Password: req.body.Password,
                     Nom: req.body.Nom,
-                    Prenom: req.body.Prenom
+                    Prenom: req.body.Prenom,
+                    photoprofil:""
                 });
                 console.log('user saved'); //affiche adans le back
                 user.save(); //envoie a la bdd
                 res.json("Ok"); //affiche dans front
             }
         })
+    },
+    async ModifUser(req,res){
+        console.log(req.body);
+        if(req.file != null){
+            const result = await cloudinary.uploader.upload(req.file.path);
+            User.findOne({email: req.body.email})
+            .then((user)=>{
+            User.updateOne(
+                { email: req.body.email },
+                {
+                $set: {
+                    email: req.body.email,
+                    Password: user.Password,
+                    Nom: req.body.Nom,
+                    Prenom: req.body.Prenom,
+                    photoprofil:result.secure_url
+                }
+                }
+            )
+                .then((user)=>{
+                    console.log(user)
+                    res.json('OK')
+                })
+            })} else{
+            User.findOne({email: req.body.email})
+            .then((user)=>{
+            User.updateOne(
+                { email: req.body.email },
+                {
+                $set: {
+                    email: req.body.email,
+                    Password: user.Password,
+                    Nom: req.body.Nom,
+                    Prenom: req.body.Prenom,
+                    photoprofil:""
+                }
+                }
+            )
+                .then((user)=>{
+                    console.log(user)
+                    res.json('OK')
+                })
+            })
     }
+}
 }

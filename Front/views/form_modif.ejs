@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier profil</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head> 
+<body>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2> Modifier profil </h2>
+    <!-- Login Form -->
+    
+    <form id="myForm"  className="form" method='POST' enctype="multipart/form-data">
+      <div id="imagePreview"></div> 
+                <img src="" alt="Image Previex"   
+						class="image-preview__image" id="imagePreview" />
+                        
+                <input type="file" name="image" id="image" className="input-custom input-photo" accept="image/png,image/jpg, image/jpeg" multiple/>
+      <input type="text" id="name" class="fadeIn second" name="Nom" placeholder="Nom">
+      <input type="text" id="prenom" class="fadeIn second" name="Prenom" placeholder="Prénom">
+      <input type="text" id="login" class="fadeIn second" name="email" placeholder="Email">
+      <input type="button" id="btnmodif" class=" btn btn-primary fadeIn fourth" value="modifier mon profil">
+    </form>
+
+    <a href="/profil"><button type="button" class="btn btn-primary mb-2">Retour</button></a>
+
+ </div>
+</div>
+<script src="fetchrecupmodif.js"></script>
+<script src="fetchenvoiemodif.js"></script>
+<script src="apercu.js"></script>
+</body>
+</html>
