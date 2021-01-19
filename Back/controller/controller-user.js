@@ -1,10 +1,9 @@
 const env = require('dotenv').config();
-const User = require('../models/model-user');
+const User = require('../model/user-model');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
 const data = require('../data/bd');
 const jwt = require('jsonwebtoken');
-
+const bcrypt=require('bcrypt');
 
 module.exports = {
     Log(req, res) {

@@ -1,5 +1,5 @@
 
-const {CreateUser,GetUser,Log, authenticateToken,deleteUser}= require('../controllers/controller-user');
+const {CreateUser,GetUser,Log, authenticateToken,deleteUser}= require('../controller/controller-user');
 const express=require('express');
 const {route} = require('../app/app');
 const router=express.Router();

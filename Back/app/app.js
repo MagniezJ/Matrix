@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const UsersRoutes = require('../route/road'); //routes 
 const bodyParser = require('body-parser');
-  
 
 const cors= require('cors');
 var corsOptions={
