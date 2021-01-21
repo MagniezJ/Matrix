@@ -6,7 +6,28 @@ html {
     font-family: "Poppins", sans-serif;
     height: 100vh;
   }
+  .profil-info{
+    margin-left: 40%;
+  }
+  .profil-info2{
+  margin-left: 50%;
+  margin-top: -8%;
+
+  }
+  .profil-info3{
+    margin-left: 25%;
+    margin-top: -8%;
   
+    }
+    #deco{
+      margin-top:8%
+    }
+    .profil-info4{
+      margin-left: 10%;
+    font-weight: bolder;
+    
+      }
+    
   a {
     color: #92badd;
     display:inline-block;
@@ -103,7 +124,7 @@ html {
     transform: scale(0.95);
   }
   
-  input[type=text] {
+  input[type=text],input[type=password],input[type=email] {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
@@ -143,6 +164,9 @@ html {
   }
   #photoprofil{
     border-radius: 50%;
+    width:200px;
+    margin-left: 30%;
+    margin-top:5%;
   }
   @-webkit-keyframes fadeInDown {
     0% {

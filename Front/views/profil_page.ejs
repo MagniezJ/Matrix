@@ -10,15 +10,21 @@
     <title>Profil</title>
 </head>
 <body>
-    <h3>Page de profil </h3>
+    
+<div class="wrapper fadeInDown">
+    <div class="card" style="background-color: #d9eff7;">
     <img  id="photoprofil"/>
-    <p id="prenom"></p>
-    <p id="nom"></p>
-    <p id="email"></p>
-    <p id="pseudo"></p>
+    <div class="card-body">
+    <p class="profil-info" id="prenom"></p>
+    <p class="profil-info2" id="nom"></p>
+    <p class="profil-info4">email:</p><p class="profil-info3" id="email"></p>
+    <p class="profil-info4">Pseudo:</p><p class="profil-info3" id="pseudo"></p>
     <a href="/modif" class="btn btn-primary btn-lg " role="button" aria-disabled="true">Modifier mon profil</a>
     <input type="button" class="btn btn-danger" value="deconnexion" id ="deco" style="background-color:red"/>
+</div>
+</div>
+    </div>
     <script src="fetch/fetchrecup.js"></script>
-    <script src="deco.js"></script>
+    <script src="js/deco.js"></script>
 </body>
 </html>
