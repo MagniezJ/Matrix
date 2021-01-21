@@ -6,7 +6,7 @@ const cloudinary = require('../image/upload');
 const data = require('../data/bd');
 const jwt = require('jsonwebtoken');
 const bcrypt=require('bcrypt');
-
+const nodemailer = require("nodemailer");
 module.exports = {
 
     Log(req, res) { // fonction de connexion
@@ -117,6 +117,7 @@ module.exports = {
         })
     },
     async ModifUser(req,res){ //modification de profil &/ou ajout de photo de profil
+        
         console.log(req.body);
         if(req.file != null){ //si on a une image 
             const result = await cloudinary.uploader.upload(req.file.path,{
@@ -160,5 +161,75 @@ module.exports = {
                 })
             })
     }
-}
+},
+    async reinit(req,res){
+        
+         User.findOne({
+            email:req.body.email
+        }).then(async (user)=>{
+        // create reusable transporter object using the default SMTP transport
+        if (user!=null){
+            let transporter = nodemailer.createTransport({
+                host: "smtp-mail.outlook.com", // hostname
+                secureConnection: false, // TLS requires secureConnection to be false
+                port: 587, // port for secure SMTP
+                tls: {
+                    ciphers:'SSLv3'
+                },
+                auth: {
+                    user: 'justinem62@hotmail.fr', // generated ethereal user
+                    pass: 'Diego.155', // generated ethereal password
+                },
+            });
+        // send mail with defined transport object
+            let info = {
+                from: '"Booh! 👻" <justinem62@hotmail.fr>', // sender address
+                to: user.email, // list of receivers
+                subject: "Reinitialisation de mdp", // Subject line
+                text: "Pour réinitialiser votre mot de passe suivre le lien suivant : http://localhost:3020/mdp/"+user._id +"", // plain text body
+                html: "<b>Pour réinitialiser votre mot de passe suivre le lien suivant : <a href=http://localhost:3020/mdp/"+user._id +"> Suivre ce lien</a></b>", // html body
+            };
+            await transporter.sendMail(info,function(error, info){
+                if(error){
+                    return console.log(error);
+                }
+        
+            console.log('Message sent: ' + info.response);
+        })
+        
+        
+      res.send("email envoyé ?")
+    }else{
+        res.send("not found")
+    }
+    })
+      },
+      modifmdp(req,res){
+        console.log("wtf dude")
+          console.log(req.body)
+        User.findOne({_id: req.body.id})
+        .then(async (user)=>{
+            const Salt=await bcrypt.genSalt(10); //cryptage par 10
+            const Hash=await bcrypt.hash(req.body.password,Salt); //crypter le mdp de l user
+            const Password=Hash; 
+            console.log(Password)
+        User.updateOne(
+            { _id: req.body.id },
+            {
+            $set: {
+                _id: req.body.id,
+                email: user.email,
+                Password: Password,//permet mdofier password
+                Nom: user.Nom,
+                Prenom: user.Prenom,
+                photoprofil:user.photoprofil 
+            }
+            }
+        )
+            .then((user)=>{
+                console.log(user)
+                res.json('OK')
+            })
+      })
+    }
 }

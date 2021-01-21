@@ -1,4 +1,4 @@
-const {CreateUser,GetUser,Log, authenticateToken,deleteUser,ModifUser}= require('../controller/controller-user'); //recup fonction utile controller
+const {CreateUser,GetUser,Log, authenticateToken,ModifUser,reinit,modifmdp}= require('../controller/controller-user'); //recup fonction utile controller
 const express=require('express');
 const {route} = require('../app/app'); // recup app
 const router=express.Router(); // simplication des route
@@ -14,4 +14,9 @@ router.route('/New')
     .post(CreateUser)
     router.route('/modification')
     .post(upload.single('image'), ModifUser) 
+    router.route('/modifmdp')
+    .post(modifmdp)
+   
+    router.route('/reinitialisation')
+    .post(reinit) 
 module.exports=router; //PAS OUBLIER EXPORT

@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr"style="height:100%">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>Reinitialisation</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> 
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 
 </head> 
-<body>
-    <div class="wrapper fadeInDown">
+<body style="height:100%">
+    <div class="wrapper fadeInDown" style="background-color: #56baed;height:100%">
   <div id="formContent">
     <!-- Tabs Titles -->
-    <h2> Connexion </h2>
+    <h2 style="margin-left:35%"> Mot de passe oublié </h2>
     <!-- Login Form -->
     <form>
       <div class="col-md-4 mx-auto mb-3">
-        <input type="email" id="login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email ou pseudo">
+        <input type="password" id="pass" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nouveau mot de passe">
       </div>
       <div class="col-md-4 mx-auto mb-3">
-        <input type="password" id="password" class="form-control" id="exampleInputPassword1" placeholder="mot de passe">
+        <input type="password" id="confpass" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="confirmer mot de passe">
       </div>
-      <input  class="fadeIn fourth"  type="button" class="btn btn-primary" value="se connecter !" id="btncon">
+      <input  class="fadeIn fourth"  type="button" class="btn btn-primary" value="reinitialiser mon mot de passe" id="btnmod" style="margin-left:35%; 
+      background:white ;
+      font-weight: bold;color:#56baed;border: 0 none;border-radius:1px;cursor: pointer;padding: 10px 5px;">
+      <p id="succes"></p>
     </form>
-    <a href="/reinit"><h7> mot de passe oublié ?</h7></a> </br>
-   <a href="/inscription"><h3> S'inscrire</h3></a> 
+    
    
   </div>
 </div>
-<script src="/fetch/fetchConnexion.js"></script>
+<script src="/fetch/mdp.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>

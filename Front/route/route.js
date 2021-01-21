@@ -1,4 +1,4 @@
-const {home,inscription,profil,modif,reinit} = require('../controller/us_controller'); //appel des fonctions du controller
+const {home,inscription,profil,modif,reinit,mdp} = require('../controller/us_controller'); //appel des fonctions du controller
 
 const express=require('express');//utilisation d express
 const { route } = require('../app/app'); //appel de route de l app
@@ -16,4 +16,6 @@ router.route('/profil')
 .get(profil)
 router.route('/reinit')
 .get(reinit)
+router.route('/mdp/:id')
+.get(mdp)
     module.exports=router;

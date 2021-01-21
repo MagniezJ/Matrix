@@ -17,4 +17,7 @@ module.exports = {
     reinit(req,res){
         res.render('Reinit_form')
     }
+    ,mdp(req,res){
+        res.render('form_mdp')
+    }
 }
