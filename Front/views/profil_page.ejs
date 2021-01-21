@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Profil</title>
 </head>
 <body>
-    <h3>Profil test</h3>
-    <input id="prenom">
-    <input id="nom">
-    <input id="email">
-    <script src="fetchrecup.js"></script>
+    <h3>Page de profil </h3>
+    <img  id="photoprofil"/>
+    <p id="prenom"></p>
+    <p id="nom"></p>
+    <p id="email"></p>
+    <p id="pseudo"></p>
+    <a href="/modif" class="btn btn-primary btn-lg " role="button" aria-disabled="true">Modifier mon profil</a>
+    <input type="button" class="btn btn-danger" value="deconnexion" id ="deco" style="background-color:red"/>
+    <script src="fetch/fetchrecup.js"></script>
+    <script src="deco.js"></script>
 </body>
 </html>

@@ -12,8 +12,8 @@ const storage = new CloudinaryStorage({ //creation de la const storage
   allowedFormats: ["jpg", "png", "jpeg"],
 }); 
 
-exports.uploads = (file, folder) => {  
-  return new Promise(resolve => {
+exports.uploads = (file, folder) => {  //creation du middleware upload img
+  return new Promise(resolve => { 
       cloudinary.uploader.upload(file, (result) => {
           resolve({
               url: result.url,

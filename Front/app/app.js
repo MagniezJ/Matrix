@@ -1,14 +1,13 @@
-const express = require('express');
-const app = express();
-const UsersRoutes = require('../route/route')
-/* const CoursesRoutes = require('./routes/Courses_routes') */
-const bodyParser = require('body-parser')
+const express = require('express'); //appel de express
+const app = express(); //appel de la fonction express
+const UsersRoutes = require('../route/route')//appel des routes
+const bodyParser = require('body-parser') //apel de body parser
 
-app.set('view engine','ejs');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(express.static('views'));
-app.use('/',UsersRoutes)
+app.set('view engine','ejs'); //dire qu'on utilise de l'ejs
+app.use(bodyParser.json()); //instanciation de bodyparser
+app.use(bodyParser.urlencoded({ extended: true }));  //instanciation 2
+app.use(express.static('views')); //definir le dossier public ( qui sera afficher)
+app.use('/',UsersRoutes) //utilisation des routes
 app.set("json spaces",2)
 
 
